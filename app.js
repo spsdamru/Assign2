@@ -128,7 +128,7 @@ async function showRaceDetails(race) {
     const circuitElement = raceDetails.querySelector('.circuit-name');
     circuitElement.addEventListener('click', () => {
         if (race.circuit) {
-            showCircuitDetails(race.circuit);
+            showCircuitDetails(race.circuit?.id);
         }
     });
 
@@ -251,10 +251,9 @@ circuitDialog.innerHTML = `
             <button class="close-btn" onclick="this.closest('dialog').close()">&times;</button>
         </div>
         <div class="modal-body">
-            <p><strong>Name:</strong> <span id="circuitName"></span></p>
             <p><strong>Location:</strong> <span id="circuitLocation"></span></p>
             <p><strong>Country:</strong> <span id="circuitCountry"></span></p>
-            <p><strong>URL:</strong> <span id="circuitUrl"></span></p>
+            <a id="circuitUrl" href="" target="_blank"></a>
         </div>
     </div>
 `;
@@ -310,13 +309,18 @@ function displayQualifying(qualifying) {
     });
 }
 
-async function showCircuitDetails(circuit) {
+async function showCircuitDetails(circuitId) {
     const dialog = document.querySelector('#circuitModal');
 
-    dialog.querySelector('#circuitName').textContent = circuit.name;
+    // Fetch full constructor details
+    const circuit = await getCachedOrFetch(
+        `${API_BASE}/circuits.php?id=${circuitId}`,
+        `${STORAGE_KEYS.circuits}_${circuitId}`
+    );
+
     dialog.querySelector('#circuitLocation').textContent = circuit.location;
     dialog.querySelector('#circuitCountry').textContent = circuit.country;
-    dialog.querySelector('#circuitUrl').href = circuit.url;
+    dialog.querySelector('#circuitUrl').textContent = circuit.url;
 
     dialog.showModal();
 }
