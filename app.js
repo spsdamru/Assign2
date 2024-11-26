@@ -314,8 +314,8 @@ async function showCircuitDetails(circuit) {
     const dialog = document.querySelector('#circuitModal');
 
     dialog.querySelector('#circuitName').textContent = circuit.name;
-    dialog.querySelector('#circuitLocation').textContent = circuit.location.locality;
-    dialog.querySelector('#circuitCountry').textContent = circuit.location.country;
+    dialog.querySelector('#circuitLocation').textContent = circuit.location;
+    dialog.querySelector('#circuitCountry').textContent = circuit.country;
     dialog.querySelector('#circuitUrl').href = circuit.url;
 
     dialog.showModal();
