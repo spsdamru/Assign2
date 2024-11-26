@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root {
+    /* Color Palette */
+    --primary-bg: #121212;
+    --secondary-bg: #1e1e1e;
+    --accent-red: #e10600;
+    --text-primary: #f0f0f0;
+    --text-secondary: #b0b0b0;
+    --hover-bg: #2a2a2a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', 'Arial', sans-serif;
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+#homeView, #racesView, #raceDetails {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    font-family: "Mulish", sans-serif;
+    color: var(--accent-red);
+    margin-bottom: 15px;
+}
+
+#driverName, #constructorName, #circuitName, #favoritesTitle {
+    color: white;
+}
+
+#mainTitle {
+    font-size: 6rem;
+}
+
+.fixed-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    padding: 20px;
+}
+
+#homeBtn, #favoritesBtn {
+    background-color: var(--accent-red);
+    font-size: 1.5rem;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#homeBtn:hover, #favoritesBtn:hover {
+    background-color: #ff3333;
+}
+
+#addDriverFav, #addConstrFav {
+    background-color: var(--accent-red);
+    display: flex;
+    font-size: 1.2rem;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#seasonSelect {
+    background-color: var(--secondary-bg);
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    border: 1px solid var(--accent-red);
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+label[for="seasonSelect"] {
+    font-size: 1.5rem;
+}
+
+#raceList {
+    background-color: var(--secondary-bg);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#raceList li {
+    padding: 15px;
+    border-bottom: 1px solid var(--primary-bg);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#raceList li:hover {
+    background-color: var(--hover-bg);
+}
+
+.race-header {
+    background-color: var(--secondary-bg);
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.race-details-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.quali-table, .results-table {
+    width: 100%;
+    background-color: var(--secondary-bg);
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.quali-table th, .results-table th {
+    background-color: var(--accent-red);
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+.quali-table td, .results-table td {
+    padding: 10px;
+    border-bottom: 1px solid var(--primary-bg);
+    cursor: pointer;
+}
+
+.quali-table tr:hover, .results-table tr:hover {
+    background-color: var(--hover-bg);
+}
+
+.podium {
+    background-color: var(--secondary-bg);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.podium-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.podium-position {
+    text-align: center;
+    background-color: var(--primary-bg);
+    border-radius: 5px;
+    padding: 10px;
+    transition: transform 0.3s ease;
+}
+
+.podium-position:hover {
+    transform: scale(1.05);
+}
+
+.position-1 { height: 200px; }
+.position-2 { height: 150px; }
+.position-3 { height: 100px; }
+
+.podium-position .position-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-red);
+}
+
+dialog {
+    background-color: var(--secondary-bg);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.modal-header {
+    background-color: var(--accent-red);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Responsivenes */
+@media (max-width: 768px) {
+    .race-details-sections {
+        grid-template-columns: 1fr;
+    }
+
+    .podium-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .podium-position {
+        width: 100%;
+        height: auto !important;
+    }
+}

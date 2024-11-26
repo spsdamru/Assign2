@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Dashboard Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Fixed Buttons -->
+    <div class="fixed-buttons">
+        <button id="homeBtn">Home</button>
+        <button id="favoritesBtn">Favorites</button>
+    </div>
+
+    <!-- Home View -->
+    <section id="homeView">
+        <!-- small logo -->
+        <img src="https://1000logos.net/wp-content/uploads/2021/06/F1-logo.png" alt="F1-logo" height="100px">
+        <h1 id="mainTitle">F1 Dashboard</h1>
+        <label for="seasonSelect">Select a season:</label>
+        <select id="seasonSelect">
+            <option value="">Select</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+        </select>
+    </section>
+
+    <!-- Races -->
+    <section id="racesView" style="display: none;">
+        <h1>Races</h1>
+        <ul id="raceList"></ul>
+    </section>
+
+    <!-- Race Details -->
+    <section id="raceDetails" style="display: none;">
+        <!-- Race details will be dynamically inserted here -->
+    </section>
+
+    <!-- Favorites Dialog -->
+    <dialog id="favoritesDialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="favoritesTitle">Favorites</h2>
+                <button class="close-btn" onclick="this.closest('dialog').close()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h3>Favorite Drivers</h3>
+                <ul id="favoriteDriversList"></ul>
+                <h3>Favorite Constructors</h3>
+                <ul id="favoriteConstructorsList"></ul>
+            </div>
+        </div>
+    </dialog>
+
+    <script src="app.js"></script>
+</body>
+</html>
